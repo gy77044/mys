@@ -1,6 +1,6 @@
-import React from 'react'
-import { IconLight, IconTick } from '../Icons/Icons'
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { IconLight, IconTick } from '../Icons/Icons';
 
 const SubscribeCard = () => {
   const { title, displayDrawer } = useSelector(state => state.drawer)

@@ -1,8 +1,7 @@
-import Card from "../Card/Card"
+import FourthBtnCardContainer from "../Card/FourthBtnCardContainer"
 import FreeCard from "../Card/FreeCard"
 import SecondBtnCardContainer from "../Card/SecondBtnCardContainer"
 import ThirdBtnCardContainer from "../Card/ThirdBtnCardContainer"
-import FourthBtnCardContainer from "../Card/FourthBtnCardContainer"
 export const btnList = [
   {
     btnTitle: "Up to 25",

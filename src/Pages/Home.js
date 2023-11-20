@@ -37,8 +37,6 @@ const Home = () => {
         </div>
       </div>
       <div className="card-container">
-        {/* <Card />
-        <Card /> */}
         {displayDrawer && (
           <div className="">
             <CardDrawer />

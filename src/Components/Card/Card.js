@@ -1,9 +1,9 @@
-import React from 'react'
-import { IconTick } from '../Icons/Icons'
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { IconTick } from '../Icons/Icons';
 
 const Card = () => {
-  const { title, displayDrawer } = useSelector(state => state.drawer)
+  const { title } = useSelector(state => state.drawer)
   const price = title === "Upto100" ? 9.99 : title === "Upto250" ? 24.99 : 49.99;
   const ticket = title === "Upto100" ? "with upto 100 tickets" : title === "Upto250" ? "with upto 250 tickets" : ", no matter the size";
 

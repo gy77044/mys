@@ -18,7 +18,6 @@ export const Drawer = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { setTitle, toggleDrawer } = Drawer.actions
 
 export default Drawer.reducer

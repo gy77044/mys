@@ -21,9 +21,6 @@ const FreeCard = () => {
           <span className='text-with-tick'><IconTick /></span><span className='text-with-tick-content'>Access all-in-one event ticketing and marketing tools</span>
         </div>
       </div>
-      {/* <div className='card-btn-text-container'>
-        <button className='card-btn-text'>Create as event with this plan</button>
-      </div> */}
     </div>
   )
 }
