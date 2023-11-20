@@ -1,16 +1,25 @@
+import { useDispatch, useSelector } from "react-redux";
+import "./App.scss";
+import CardDrawer from "./Components/Drawer/CardDrawer";
 import Header from "./Components/Header/Header";
-import "./App.scss"
 import MainHeader from "./Components/Headings/MainHeader";
 import SubHeader from "./Components/Headings/SubHeader";
-import { btnList } from "./Components/List/List";
-import Card from "./Components/Card/Card";
-import { setTitle, toggleDrawer } from "./features/Drawer";
-import { useDispatch, useSelector } from "react-redux";
-import CardDrawer from "./Components/Drawer/CardDrawer"
 import { IconOpenNew } from "./Components/Icons/Icons";
+import { btnList } from "./Components/List/List";
+import { setTitle, toggleDrawer } from "./features/Drawer";
 function App() {
   const dispatch = useDispatch()
   const { title, displayDrawer } = useSelector(state => state.drawer)
+
+  const handleSelectChange = (selectedTitle) => {
+    if (title === selectedTitle) {
+      dispatch(toggleDrawer(false));
+      dispatch(setTitle(""));
+    } else {
+      dispatch(setTitle(selectedTitle));
+      dispatch(toggleDrawer(true));
+    }
+  };
 
   return (<>
     <div className="App">
@@ -25,22 +34,36 @@ function App() {
             {btnList.map((ele) => {
               return (
                 <button className={`btn-actual ${title === ele.title ? "btn-actual-active"
-                  : ""} `} onClick={() => {
-                    if (title === ele.title) {
-                      dispatch(toggleDrawer(false));
-                      dispatch(setTitle(""));
-                    } else {
-                      dispatch(setTitle(ele.title));
-                      dispatch(toggleDrawer(true));
-                    }
-                  }}>{ele.btnTitle}</button>
+                  : ""} `} onClick={() =>
+                    //    {
+                    //   if (title === ele.title) {
+                    //     dispatch(toggleDrawer(false));
+                    //     dispatch(setTitle(""));
+                    //   } else {
+                    //     dispatch(setTitle(ele.title));
+                    //     dispatch(toggleDrawer(true));
+                    //   }
+                    // }
+                    handleSelectChange(ele.title)
+                  }
+                >{ele.btnTitle}</button>
               )
             })}
           </div>
+          <div className="new-btn-wrapper">
+            <select className="select-container"
+              value={title}
+              onChange={(e) => handleSelectChange(e.target.value)}
+            >
+              {btnList.map((ele) => (
+                <option className="select-dropdown" key={ele.title} value={ele.title}>
+                  {ele.btnTitle}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="card-container">
-          {/* <Card />
-        <Card /> */}
           {displayDrawer && (
             <CardDrawer />
           )}
